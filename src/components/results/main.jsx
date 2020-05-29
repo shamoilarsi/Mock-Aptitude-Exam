@@ -38,9 +38,9 @@ export default class Result extends Component {
           </div>
         </div>
         <div className="questions-div">
-        {this.props.mcqs.map((val, index) => {
-          return <MCQ mcq={this.props.mcqs[index]} key={index} id={index}/>;
-        })}
+          {this.props.mcqs.map((val, index) => {
+            return <MCQ mcq={this.props.mcqs[index]} key={index} id={index} />;
+          })}
         </div>
         <Footer />
       </div>

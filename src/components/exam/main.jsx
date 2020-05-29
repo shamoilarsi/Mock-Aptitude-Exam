@@ -1,9 +1,9 @@
 /* eslint-disable no-mixed-operators */
 import React, { Component } from "react";
-import NavBar from "./examNavBar";
+import NavBar from "./navBar";
 import MCQ from "./mcq";
 import Footer from "./footer";
-import Result from "../results/result";
+import Result from "../results/main";
 import QuestionModal from "./questionsModal";
 
 class MainEngine extends Component {
@@ -181,10 +181,7 @@ class MainEngine extends Component {
       <div style={{ height: "100vh" }}>
         {(!this.state.submit && (
           <>
-            <NavBar
-              minutes={this.state.minutes}
-              seconds={this.state.seconds}
-            />
+            <NavBar minutes={this.state.minutes} seconds={this.state.seconds} />
 
             {this.state.questionsModal ? (
               <QuestionModal

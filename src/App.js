@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import MainEngine from "./components/exam/mainEngine";
+import Main from "./components/fetch_questions/main";
 
 export default class App extends Component {
   render() {
-    return <MainEngine />;
+    return <Main />;
   }
 }

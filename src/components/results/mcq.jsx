@@ -34,7 +34,7 @@ export default class MCQ extends Component {
             <i
               style={{ color: "red", marginRight: "5px" }}
               className="fa fa-exclamation-triangle"></i>
-              <span style={{color: "red"}}>You marked this for review</span>
+            <span style={{ color: "red" }}>You marked this for review</span>
             <br />
           </>
         ) : (
