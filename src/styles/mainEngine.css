@@ -26,9 +26,8 @@
   justify-content: center;
   align-items: center;
   background-color: lightcoral;
-  height: 100px;
+  min-height: 100px;
   max-width: 1000px;
-  padding: 20px 30px;
   border-radius: 20px;
 }
 
@@ -150,10 +149,10 @@
   margin: 10px 0px;
   border: none;
   user-select: none;
-  border: 2px solid #8bc34a;
-  background-color: white;
-  font-weight: 700;
-  color: black;
+  border: 2px solid #28a745;
+  background-color: #28a745;
+  font-weight: 600;
+  color: white;
   border-radius: 5px;
 
   -webkit-transition: all 0.15s ease-in-out;
@@ -163,8 +162,8 @@
 }
 
 .submit-button:hover {
-  background-color: #8bc34a;
-  color: white !important;
+  background-color: #23923d;
+  border: 2px solid #23923d;
 }
 
 .view-all-button {

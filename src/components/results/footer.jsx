@@ -5,7 +5,7 @@ function Footer(props) {
   return (
     <div className="footer-result">
       <hr />
-      <i style={{ marginRight: "5px" }} class="fa fa-code"></i>
+      <i style={{ marginRight: "5px" }} className="fa fa-code"></i>
       with <i style={{ color: "red" }} className="fa fa-heart"></i> by Shamoil
       Arsiwala
     </div>

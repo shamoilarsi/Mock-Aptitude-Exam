@@ -1,15 +1,14 @@
-/* eslint-disable no-mixed-operators */
 import React, { Component } from "react";
 import NavBar from "./navBar";
 import MCQ from "./mcq";
 import Footer from "./footer";
-import Result from "../results/main";
 import QuestionModal from "./questionsModal";
+
+let myInterval;
 
 class MainEngine extends Component {
   state = {
     index: 0,
-    submit: 0,
     minutes: 100,
     seconds: 0,
     questionsModal: 0,
@@ -121,20 +120,37 @@ class MainEngine extends Component {
     ],
   };
 
+  componentWillUnmount() {
+    clearInterval(myInterval);
+  }
+
   componentDidMount() {
-    let myInterval = setInterval(() => {
+    myInterval = setInterval(() => {
       if (this.state.seconds > 0) {
         this.setState({ seconds: this.state.seconds - 1 });
       }
       if (this.state.seconds === 0) {
         if (this.state.minutes === 0) {
           clearInterval(myInterval);
-          this.setState({ submit: 1 });
+          this.onSubmit();
         } else {
           this.setState({ seconds: 59, minutes: this.state.minutes - 1 });
         }
       }
     }, 1000);
+
+    const found = localStorage.getItem("exam-state");
+    if (!found) {
+      this.setState({ mcqs: this.props.mcqs });
+      // console.log("fetched waale use kiye");
+    } else {
+      this.setState(JSON.parse(found));
+      // console.log("local waale use kiye");
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("exam-state", JSON.stringify(this.state));
   }
 
   nextClicked = () => {
@@ -148,12 +164,14 @@ class MainEngine extends Component {
 
   setAnswer = id => {
     let copy = this.state.mcqs;
-    copy[this.state.index]["selected_index"] = id;
+    copy[this.state.index]["selected_index"] = String.fromCharCode(
+      parseInt(id) + 65,
+    );
     this.setState({ mcqs: copy });
   };
 
   onSubmit = () => {
-    this.setState({ submit: 1 });
+    this.props.setState({ mcqs: this.state.mcqs, inExam: 0, inResult: 1 });
   };
 
   onReport = reported => {
@@ -179,9 +197,13 @@ class MainEngine extends Component {
   render() {
     return (
       <div style={{ height: "100vh" }}>
-        {(!this.state.submit && (
+        {!this.state.submit && (
           <>
-            <NavBar minutes={this.state.minutes} seconds={this.state.seconds} />
+            <NavBar
+              minutes={this.state.minutes}
+              seconds={this.state.seconds}
+              id={this.props.id}
+            />
 
             {this.state.questionsModal ? (
               <QuestionModal
@@ -208,7 +230,7 @@ class MainEngine extends Component {
               onClickQuestionsModal={this.onClickQuestionsModal}
             />
           </>
-        )) || <Result mcqs={this.state.mcqs} />}
+        )}
       </div>
     );
   }

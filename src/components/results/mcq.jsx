@@ -7,9 +7,11 @@ export default class MCQ extends Component {
     for (let i = 0; i < 4; i++) {
       let classes = "col col-4 option-result ";
 
-      if (this.props.mcq["answer"].charCodeAt(0) - 65 === i) {
+      if (this.props.mcq["answer"] === String.fromCharCode(i + 65)) {
         classes += "option-result-right";
-      } else if (this.props.mcq["selected_index"] === i) {
+      } else if (
+        this.props.mcq["selected_index"] === String.fromCharCode(i + 65)
+      ) {
         classes += "option-result-wrong";
       }
 
@@ -34,7 +36,9 @@ export default class MCQ extends Component {
             <i
               style={{ color: "red", marginRight: "5px" }}
               className="fa fa-exclamation-triangle"></i>
-            <span style={{ color: "red" }}>You marked this for review</span>
+            <span style={{ color: "red" }}>
+              You marked this as an incorrect question
+            </span>
             <br />
           </>
         ) : (
@@ -51,7 +55,7 @@ export default class MCQ extends Component {
             <div className="row">{this.loadOptions()}</div>
           </div>
         </div>
-        <b style={{ marginTop: "10px" }}>Explaination : </b>
+        <b style={{ marginTop: "10px" }}>Explanation : </b>
         <div
           style={{ marginLeft: "20px", marginTop: "5px" }}
           dangerouslySetInnerHTML={{ __html: this.props.mcq["explanation"] }}

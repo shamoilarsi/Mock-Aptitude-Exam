@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 
 export default class Footer extends Component {
-  state = {
-    reported: false,
-  };
-
   onReport = () => {
-    this.setState({ reported: !this.props.mcq["reported"] });
     this.props.onReport(!this.props.mcq["reported"]);
   };
 
@@ -17,9 +12,7 @@ export default class Footer extends Component {
           <button className="report-button" onClick={this.onReport}>
             <i className="fa fa-exclamation-triangle"></i>
           </button>
-          <button
-            className="submit-button"
-            onClick={() => this.props.onSubmit()}>
+          <button className="submit-button" onClick={this.props.onSubmit}>
             SUBMIT <i className="fa fa-check"></i>
           </button>
           <button

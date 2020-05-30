@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Main from "./components/fetch_questions/main";
+import Main from "./components/main/main";
 
 export default class App extends Component {
   render() {

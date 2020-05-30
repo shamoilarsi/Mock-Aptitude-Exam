@@ -86,9 +86,7 @@
 .footer-result {
   margin: 20px auto;
   text-align: center;
-
 }
-
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .option-result {

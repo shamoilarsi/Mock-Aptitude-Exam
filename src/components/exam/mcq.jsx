@@ -11,8 +11,10 @@ export default class MCQ extends Component {
         <div
           onClick={() => this.props.setAnswer(i)}
           className={
-            "col col-4 option " +
-            (i === this.props.mcq["selected_index"] ? "option-disabled" : "")
+            "col col-5 option " +
+            (String.fromCharCode(i + 65) === this.props.mcq["selected_index"]
+              ? "option-disabled"
+              : "")
           }
           key={i}
           id={"option-" + i}
