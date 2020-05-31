@@ -9,9 +9,9 @@ export default class Footer extends Component {
     return (
       <div className="footer">
         <div className="submit-div">
-          <button className="report-button" onClick={this.onReport}>
+          {/* <button className="report-button" onClick={this.onReport}>
             <i className="fa fa-exclamation-triangle"></i>
-          </button>
+          </button> */}
           <button className="submit-button" onClick={this.props.onSubmit}>
             SUBMIT <i className="fa fa-check"></i>
           </button>

@@ -9,7 +9,7 @@ let myInterval;
 class MainEngine extends Component {
   state = {
     index: 0,
-    minutes: 100,
+    minutes: 10,
     seconds: 0,
     questionsModal: 0,
     mcqs: [

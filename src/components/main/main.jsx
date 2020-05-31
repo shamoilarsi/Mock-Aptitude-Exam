@@ -98,7 +98,13 @@ export default class Main extends Component {
 
   logout = () => {
     localStorage.clear();
-    this.setState({ loggedIn: 0, inExam: 0, inResult: 0, id: 0 });
+    this.setState({
+      loggedIn: 0,
+      inExam: 0,
+      inResult: 0,
+      id: 0,
+      fetchError: 0,
+    });
   };
 
   render() {
