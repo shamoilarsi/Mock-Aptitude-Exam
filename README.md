@@ -1,6 +1,6 @@
 # Aptitude Exam
 Aptitude exam is a mock test website for MCQs based questions mainly inspired by the MCQ exams held in colleges. 
-All information is served by a private API I built whos GitHub repository is linked [here](https://github.com/shamoilarsi/Aptitude-Exam-Server).
+All information is served by a private API I built whos GitHub repository is linked [here](https://github.com/shamoilarsi/Aptitude-Exam-API).
 
 ### Features:
 * has a login option where students can log in with their id and password.
