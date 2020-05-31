@@ -18,4 +18,5 @@ All information is served by a private API I built whos GitHub repository is lin
 I developed this mock test website mainly to get my hands dirty with React.js and web development in general. 
 
 ### Demo
+Website is live on - https://aptitude-exam.web.app/
 You can find a video showing the flow of the website on LinkedIn
