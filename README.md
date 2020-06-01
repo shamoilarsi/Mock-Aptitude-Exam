@@ -20,4 +20,4 @@ I developed this mock test website mainly to get my hands dirty with React.js an
 ### Demo
 Website is live on - https://aptitude-exam.web.app/ 
 
-You can find a video showing the flow of the website on [LinkedIn](https://www.linkedin.com/posts/shamoilarsi_react-js-reactjs-activity-6672944308586475520-TYM2)
+You can find a video showing the flow of the website on [LinkedIn](https://www.linkedin.com/posts/shamoilarsi_react-js-reactjs-activity-6672951654880571392-KdFu)
