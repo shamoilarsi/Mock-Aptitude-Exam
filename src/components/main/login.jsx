@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 function Login(props) {
-  const [studentId, setStudentId] = useState("");
-  const [studentPass, setStudentPass] = useState("");
+  const [studentId, setStudentId] = useState("T214");
+  const [studentPass, setStudentPass] = useState("q234");
   const [fetchingCred, setFetchingCred] = useState(0);
   const [incorrectCred, setIncorrectCred] = useState(0);
 
