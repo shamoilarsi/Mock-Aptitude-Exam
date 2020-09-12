@@ -38,12 +38,22 @@ code {
   height: 90vh;
 }
 
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
 .login-inner {
   height: inherit;
   align-items: center;
   flex: 1;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: -80px;
 }
 
 .my-login-card {

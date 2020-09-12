@@ -13,7 +13,9 @@ export default class NavBar extends Component {
               flexDirection: "row",
             }}>
             <div className="anchor">
-              <b style={{ fontSize: 25, userSelect: "none" }}>Apti Exam</b>
+              <b style={{ fontSize: 25, userSelect: "none" }}>
+                Engineers Day 2020
+              </b>
             </div>
           </div>
           <div style={{ fontSize: "20px" }}>

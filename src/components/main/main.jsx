@@ -4,6 +4,9 @@ import Login from "./login";
 import SelectTopic from "./select_topic";
 import MCQEngine from "../exam/main";
 import Result from "../results/main";
+
+import firebase from "../../firebase";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "../../styles/index.css";
 
@@ -13,7 +16,9 @@ export default class Main extends Component {
     inResult: 0,
     loggedIn: 0,
     fetchError: 0,
+    absTime: 0,
     id: 0,
+    whichExam: "",
     mcqs: [],
   };
 
@@ -40,7 +45,7 @@ export default class Main extends Component {
 
   onSubmit = async (id, pass) => {
     await fetch(
-      `https://apti-exam-backend.herokuapp.com/api/credentials?id=${id}&pass=${pass}`,
+      `https://engineering-day-2020.herokuapp.com/api/credentials?id=${id}&pass=${pass}`,
       {
         method: "POST",
         headers: {
@@ -61,7 +66,7 @@ export default class Main extends Component {
 
   selectedTopic = (id, limit) => {
     fetch(
-      `https://apti-exam-backend.herokuapp.com/api/apti?topic=${id}&limit=${limit}`,
+      `https://engineering-day-2020.herokuapp.com/api/apti?topic=${id}&limit=${limit}`,
       {
         method: "POST",
         headers: {
@@ -71,29 +76,46 @@ export default class Main extends Component {
     )
       .then(res => res.json())
       .then(json => {
-        this.setState({ mcqs: json.mcq, inExam: 1 });
+        this.setState({ mcqs: json.mcq, inExam: 1, whichExam: id });
       });
   };
 
-  handleSetState = data => {
-    fetch(
-      `https://apti-exam-backend.herokuapp.com/api/saveResult?id=${
-        this.state.id
-      }&result=${this.calcResult(data.mcqs)}`,
-      {
-        method: "POST",
-        headers: {
-          accepts: "application/json",
+  handleSetState = async data => {
+    const db = firebase.firestore();
+    await db
+      .collection("EnggDay2020")
+      .doc(this.state.whichExam)
+      .set(
+        {
+          [this.state.id]: {
+            score: this.calcResult(data.mcqs),
+            time: data.absTime,
+          },
         },
-      },
-    )
-      .then(res => res.json())
-      .then(json => {
-        if (json.msg === "success") this.setState(data);
-        else {
-          console.log("error while saving result");
-        }
-      });
+        { merge: true },
+      );
+
+    console.log(data);
+    this.setState(data);
+
+    // fetch(
+    //   `https://engineering-day-2020.herokuapp.com/api/saveResult?id=${
+    //     this.state.id
+    //   }&result=${this.calcResult(data.mcqs)}`,
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       accepts: "application/json",
+    //     },
+    //   },
+    // )
+    //   .then(res => res.json())
+    //   .then(json => {
+    //     if (json.msg === "success") this.setState(data);
+    //     else {
+    //       console.log("error while saving result");
+    //     }
+    //   });
   };
 
   logout = () => {

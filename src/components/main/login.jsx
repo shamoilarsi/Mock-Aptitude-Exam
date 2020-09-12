@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import acesLogo from "./aces-logo.png";
 
 function Login(props) {
   const [studentId, setStudentId] = useState("T214");
@@ -21,6 +22,10 @@ function Login(props) {
   return (
     <div className="login-outer">
       <div className="login-inner">
+        <div className="login-header">
+          <img src={acesLogo} style={{ width: "150px" }} alt="logo" />
+          <h4 style={{ marginLeft: "5vw" }}>ACES Presents</h4>
+        </div>
         <div className="card my-login-card">
           <div className="card-header">
             <b style={{ fontSize: "1.5rem" }}>Login</b>{" "}

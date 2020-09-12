@@ -9,8 +9,9 @@ let myInterval;
 class MainEngine extends Component {
   state = {
     index: 0,
-    minutes: 10,
+    minutes: 20,
     seconds: 0,
+    absTime: 0,
     questionsModal: 0,
     mcqs: [
       {
@@ -126,9 +127,6 @@ class MainEngine extends Component {
 
   componentDidMount() {
     myInterval = setInterval(() => {
-      if (this.state.seconds > 0) {
-        this.setState({ seconds: this.state.seconds - 1 });
-      }
       if (this.state.seconds === 0) {
         if (this.state.minutes === 0) {
           clearInterval(myInterval);
@@ -136,7 +134,11 @@ class MainEngine extends Component {
         } else {
           this.setState({ seconds: 59, minutes: this.state.minutes - 1 });
         }
+      } else if (this.state.seconds > 0) {
+        this.setState({ seconds: this.state.seconds - 1 });
       }
+
+      this.setState({ absTime: this.state.absTime + 1 });
     }, 1000);
 
     this.setState({ mcqs: this.props.mcqs });
@@ -175,7 +177,12 @@ class MainEngine extends Component {
   };
 
   onSubmit = () => {
-    this.props.setState({ mcqs: this.state.mcqs, inExam: 0, inResult: 1 });
+    this.props.setState({
+      mcqs: this.state.mcqs,
+      inExam: 0,
+      inResult: 1,
+      absTime: this.state.absTime,
+    });
   };
 
   onReport = reported => {
