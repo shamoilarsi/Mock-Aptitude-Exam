@@ -17,14 +17,14 @@ export default class Main extends Component {
     mcqs: [],
   };
 
-  componentDidMount() {
-    const storage = localStorage.getItem("main-state");
-    storage && this.setState(JSON.parse(storage));
-  }
+  // componentDidMount() {
+  //   const storage = localStorage.getItem("main-state");
+  //   storage && this.setState(JSON.parse(storage));
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    localStorage.setItem("main-state", JSON.stringify(this.state));
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   localStorage.setItem("main-state", JSON.stringify({...this.state, mcqs: []}));
+  // }
 
   calcResult = mcqs => {
     let res = 0;
@@ -97,7 +97,7 @@ export default class Main extends Component {
   };
 
   logout = () => {
-    localStorage.clear();
+    // localStorage.clear();
     this.setState({
       loggedIn: 0,
       inExam: 0,
@@ -133,6 +133,7 @@ export default class Main extends Component {
               <Result
                 mcqs={this.state.mcqs}
                 result={this.calcResult(this.state.mcqs)}
+                logout={this.logout}
               />
             ) : (
               <>

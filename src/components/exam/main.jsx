@@ -139,19 +139,23 @@ class MainEngine extends Component {
       }
     }, 1000);
 
-    const found = localStorage.getItem("exam-state");
-    if (!found) {
-      this.setState({ mcqs: this.props.mcqs });
-      // console.log("fetched waale use kiye");
-    } else {
-      this.setState(JSON.parse(found));
-      // console.log("local waale use kiye");
-    }
+    this.setState({ mcqs: this.props.mcqs });
+
+    // const found = localStorage.getItem("exam-state");
+    // if (!found) {
+    //   // console.log("fetched waale use kiye");
+    // } else {
+    //   this.setState(JSON.parse(found));
+    //   // console.log("local waale use kiye");
+    // }
   }
 
-  componentDidUpdate() {
-    localStorage.setItem("exam-state", JSON.stringify(this.state));
-  }
+  // componentDidUpdate() {
+  //   localStorage.setItem(
+  //     "exam-state",
+  //     JSON.stringify({ ...this.state, mcqs: [] }),
+  //   );
+  // }
 
   nextClicked = () => {
     if (this.state.index < this.state.mcqs.length - 1)

@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import "../../styles/results.css";
 import MCQ from "./mcq";
 import Footer from "./footer";
+import firebase from "../../firebase";
 
 export default class Result extends Component {
   render() {
+    const db = firebase.firestore();
+    db.collection("EnggDay2020")
+      .doc("Round1-SE")
+      .set({ email: { score: 10 } });
+
     return (
       <div>
         <div className="marks-outer-div">

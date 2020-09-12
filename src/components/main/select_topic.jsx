@@ -3,14 +3,17 @@ import "../../styles/select_topic.css";
 
 function Main(props) {
   const topicList = [
-    { id: "number-series", title: "Number Series" },
-    { id: "logical-problems", title: "Logical Problems" },
-    { id: "odd-man-out-and-series", title: "Odd Man Out" },
-    { id: "series-completion", title: "Series Completion" },
+    // { id: "round1-se", title: "Round 1 - SE" },
+    // { id: "round1-te", title: "Round 1 - TE" },
+    // { id: "round1-be", title: "Round 1 - BE" },
+
+    { id: "round2-se", title: "Round 2 - SE" },
+    { id: "round2-te", title: "Round 2 - TE" },
+    { id: "round2-be", title: "Round 2 - BE" },
   ];
 
   let [selectedTopic, setSelectedTopic] = useState(0);
-  let [limit, setLimit] = useState(10);
+  let [limit, setLimit] = useState(25);
   let [showLoader, setShoWLoader] = useState(0);
 
   return (
