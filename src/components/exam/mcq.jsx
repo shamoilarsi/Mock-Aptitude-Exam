@@ -63,6 +63,9 @@ export default class MCQ extends Component {
             nextClicked={() => this.props.nextClicked()}
             prevClicked={() => this.props.prevClicked()}
             setIsMarked={() => this.props.setIsMarked()}
+            onSubmit={this.props.onSubmit}
+            onReport={this.props.onReport}
+            onClickQuestionsModal={this.props.onClickQuestionsModal}
           />
         </div>
       </div>

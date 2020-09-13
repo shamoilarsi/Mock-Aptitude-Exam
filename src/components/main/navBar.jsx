@@ -7,7 +7,7 @@ export default class NavBar extends Component {
     return (
       <div className="nav-bar">
         <div style={{ fontSize: "1.8rem", userSelect: "none" }}>
-          <b> Engineers Day 2020 </b>
+          <b> </b>
         </div>
         <div className="nav-links-div">
           {this.props.options.map((val, index) =>

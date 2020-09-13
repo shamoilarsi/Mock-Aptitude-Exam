@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import acesLogo from "./aces-logo.png";
 
 function Login(props) {
-  const [studentId, setStudentId] = useState("T214");
-  const [studentPass, setStudentPass] = useState("q234");
+  const [studentId, setStudentId] = useState("");
+  const [studentPass, setStudentPass] = useState("");
   const [fetchingCred, setFetchingCred] = useState(0);
   const [incorrectCred, setIncorrectCred] = useState(0);
 
@@ -22,9 +22,24 @@ function Login(props) {
   return (
     <div className="login-outer">
       <div className="login-inner">
-        <div className="login-header">
-          <img src={acesLogo} style={{ width: "150px" }} alt="logo" />
-          <h4 style={{ marginLeft: "5vw" }}>ACES Presents</h4>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            marginBottom: "3vh",
+          }}>
+          <div className="login-header">
+            <img src={acesLogo} style={{ width: "150px" }} alt="logo" />
+            <h4 style={{ marginLeft: "5vw", fontFamily: "Poppins" }}>
+              ACES Presents
+            </h4>
+          </div>
+          <div>
+            <h3 style={{ marginTop: "3vh", fontFamily: "Poppins" }}>
+              Engineers Day 2020
+            </h3>
+          </div>
         </div>
         <div className="card my-login-card">
           <div className="card-header">
@@ -40,14 +55,15 @@ function Login(props) {
             }}>
             {incorrectCred ? (
               <div style={{ color: "red", marginBottom: "10px" }}>
-                Incorrect credentials. Please try again
+                Incorrect credentials. Please try again or contact ACES
+                coordinators
               </div>
             ) : (
               ""
             )}
 
             <div className="form-group">
-              <label>Student ID</label>
+              <label>Email ID</label>
               <input
                 type="text"
                 className="form-control"
@@ -55,10 +71,10 @@ function Login(props) {
                 id="student_id"
                 autoComplete="off"
                 onChange={event => setStudentId(event.target.value)}
-                placeholder="T214"
+                placeholder="shamoilarsiwala16@gmail.com"
               />
               <small className="form-text text-muted">
-                Enter the ID given at the time of registration.
+                Enter the Email ID given at the time of registration.
               </small>
             </div>
             <div className="form-group">
@@ -70,13 +86,16 @@ function Login(props) {
                 value={studentPass}
                 autoComplete="off"
                 onChange={event => setStudentPass(event.target.value)}
-                placeholder="q234"
+                placeholder="********"
               />
               <small className="form-text text-muted">
-                Enter the password given by your invigilator.
+                Enter the password given by ACES coordinators.
               </small>
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={fetchingCred}>
               {fetchingCred ? (
                 <i
                   style={{ marginRight: "5px" }}

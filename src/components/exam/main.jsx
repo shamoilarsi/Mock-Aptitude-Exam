@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "./navBar";
 import MCQ from "./mcq";
-import Footer from "./footer";
+// import Footer from "./footer";
 import QuestionModal from "./questionsModal";
 
 let myInterval;
@@ -9,7 +9,7 @@ let myInterval;
 class MainEngine extends Component {
   state = {
     index: 0,
-    minutes: 20,
+    minutes: 15,
     seconds: 0,
     absTime: 0,
     questionsModal: 0,
@@ -233,13 +233,16 @@ class MainEngine extends Component {
               prevClicked={this.prevClicked}
               setIsMarked={this.setIsMarked}
               setAnswer={this.setAnswer}
+              onSubmit={this.onSubmit}
+              onReport={this.onReport}
+              onClickQuestionsModal={this.onClickQuestionsModal}
             />
-            <Footer
+            {/* <Footer
               onSubmit={this.onSubmit}
               onReport={this.onReport}
               mcq={this.state.mcqs[this.state.index]}
               onClickQuestionsModal={this.onClickQuestionsModal}
-            />
+            /> */}
           </>
         )}
       </div>

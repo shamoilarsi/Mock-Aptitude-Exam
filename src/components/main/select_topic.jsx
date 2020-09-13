@@ -3,9 +3,9 @@ import "../../styles/select_topic.css";
 
 function Main(props) {
   const topicList = [
-    // { id: "round1-se", title: "Round 1 - SE" },
-    // { id: "round1-te", title: "Round 1 - TE" },
-    // { id: "round1-be", title: "Round 1 - BE" },
+    { id: "round1-se", title: "Round 1 - SE" },
+    { id: "round1-te", title: "Round 1 - TE" },
+    { id: "round1-be", title: "Round 1 - BE" },
 
     { id: "round2-se", title: "Round 2 - SE" },
     { id: "round2-te", title: "Round 2 - TE" },
@@ -56,6 +56,7 @@ function Main(props) {
             <button
               style={{ float: "right", marginTop: "40px" }}
               className="btn btn-primary"
+              disabled={showLoader}
               onClick={() => {
                 setShoWLoader(1);
                 props.selectedTopic(topicList[selectedTopic].id, limit);
