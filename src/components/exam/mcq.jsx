@@ -19,8 +19,7 @@ export default class MCQ extends Component {
           key={i}
           id={"option-" + i}
           dangerouslySetInnerHTML={{
-            __html:
-              String.fromCharCode(i + 65) + ". " + this.props.mcq.options[i],
+            __html: this.props.mcq.options[i],
           }}
         />,
       );

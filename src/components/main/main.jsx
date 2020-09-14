@@ -55,7 +55,6 @@ export default class Main extends Component {
     )
       .then(res => res.json())
       .then(json => {
-        console.log(json);
         if (json.status === "success") {
           this.setState({ loggedIn: 1, id });
         } else {
@@ -93,7 +92,6 @@ export default class Main extends Component {
         { merge: true },
       );
 
-    console.log(data);
     this.setState(data);
 
     // fetch(
