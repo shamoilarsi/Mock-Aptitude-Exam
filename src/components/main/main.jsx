@@ -83,14 +83,12 @@ export default class Main extends Component {
   handleSetState = async data => {
     const db = firebase.firestore();
     await db
-      .collection("EnggDay2020")
-      .doc(this.state.whichExam)
+      .collection(this.state.whichExam)
+      .doc(this.state.id)
       .set(
         {
-          [this.state.id]: {
-            score: this.calcResult(data.mcqs),
-            time: data.absTime,
-          },
+          score: this.calcResult(data.mcqs),
+          time: data.absTime,
         },
         { merge: true },
       );
