@@ -3,13 +3,17 @@ import "../../styles/select_topic.css";
 
 function Main(props) {
   const topicList = [
-    { id: "round1-se", title: "Round 1 - SE" },
-    { id: "round1-te", title: "Round 1 - TE" },
-    { id: "round1-be", title: "Round 1 - BE" },
+    // { id: "round1-se", title: "Round 1 - SE" },
+    // { id: "round1-te", title: "Round 1 - TE" },
+    // { id: "round1-be", title: "Round 1 - BE" },
+    // { id: "round2-se", title: "Round 2 - SE" },
+    // { id: "round2-te", title: "Round 2 - TE" },
+    // { id: "round2-be", title: "Round 2 - BE" },
 
-    { id: "round2-se", title: "Round 2 - SE" },
-    { id: "round2-te", title: "Round 2 - TE" },
-    { id: "round2-be", title: "Round 2 - BE" },
+    { id: "number-series", title: "Number Series" },
+    { id: "logical-problems", title: "Logical Problems" },
+    { id: "odd-man-out-and-series", title: "Odd Man Out" },
+    { id: "series-completion", title: "Series Completion" },
   ];
 
   let [selectedTopic, setSelectedTopic] = useState(0);

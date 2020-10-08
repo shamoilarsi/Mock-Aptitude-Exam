@@ -45,7 +45,7 @@ export default class Main extends Component {
 
   onSubmit = async (id, pass) => {
     await fetch(
-      `https://engineering-day-2020.herokuapp.com/api/credentials?id=${id}&pass=${pass}`,
+      `https://apti-exam-backend.herokuapp.com/api/credentials?id=${id}&pass=${pass}`,
       {
         method: "POST",
         headers: {
@@ -65,7 +65,7 @@ export default class Main extends Component {
 
   selectedTopic = (id, limit) => {
     fetch(
-      `https://engineering-day-2020.herokuapp.com/api/apti?topic=${id}&limit=${limit}`,
+      `https://apti-exam-backend.herokuapp.com/api/apti?topic=${id}&limit=${limit}`,
       {
         method: "POST",
         headers: {

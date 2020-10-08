@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import acesLogo from "./aces-logo.png";
 
 function Login(props) {
-  const [studentId, setStudentId] = useState("");
-  const [studentPass, setStudentPass] = useState("");
+  const [studentId, setStudentId] = useState("T214");
+  const [studentPass, setStudentPass] = useState("q234");
   const [fetchingCred, setFetchingCred] = useState(0);
   const [incorrectCred, setIncorrectCred] = useState(0);
 
@@ -71,7 +71,7 @@ function Login(props) {
                 id="student_id"
                 autoComplete="off"
                 onChange={event => setStudentId(event.target.value)}
-                placeholder="shamoilarsiwala16@gmail.com"
+                placeholder="T214"
               />
               <small className="form-text text-muted">
                 Enter the Email ID given at the time of registration.
@@ -86,7 +86,7 @@ function Login(props) {
                 value={studentPass}
                 autoComplete="off"
                 onChange={event => setStudentPass(event.target.value)}
-                placeholder="********"
+                placeholder="q234"
               />
               <small className="form-text text-muted">
                 Enter the password given by ACES coordinators.
